@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "trading"
+version = "0.1.0"
+description = ""
+authors = ["azizamakeeva <makeeva.aziza@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.1.0"
+websockets = "^11.0.3"
+pandas-ta = "^0.3.14b0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
