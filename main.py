@@ -7,6 +7,12 @@ from pandas_ta import rsi
 
 
 async def binance(uri='wss://stream.binance.com:9443/ws/btcusdt@kline_5m', length=15):
+    """
+    func for fetch data, calculate RSI from Binance
+    :param uri: link for api
+    :param length: length of RSI, 15 cause we need length=14, its for enough data to calculate RSI
+    :return:
+    """
     close_list = []
     async with websockets.connect(uri) as ws:
         while True:
@@ -28,6 +34,12 @@ async def binance(uri='wss://stream.binance.com:9443/ws/btcusdt@kline_5m', lengt
 
 async def bitfinex(uri='wss://api-pub.bitfinex.com/ws/2',
                    request='{"event":"subscribe","channel":"candles","key":"trade:1m:tBTCUSD"}'):
+    """
+    func for fetch data, calculate VWAP from Bitfinex
+    :param uri: link for api
+    :param request: params for candle to subscribe
+    """
+
     async with websockets.connect(uri) as ws:
         await ws.send(request)
         cumulative_pv: float = 0
